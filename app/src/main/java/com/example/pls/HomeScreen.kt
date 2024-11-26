@@ -14,7 +14,7 @@ import androidx.navigation.NavController
 @Composable
 fun HomeScreen(navController: NavController) {
     // Stany dla obrazka i tekstu
-    var currentImage by remember { mutableStateOf(R.drawable.jones) }
+    var currentImage by remember { mutableIntStateOf(R.drawable.jones) }
     var currentText by remember { mutableStateOf("Jones") }
 
     Box(
@@ -53,18 +53,30 @@ fun HomeScreen(navController: NavController) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Nawigacja do innych ekranów
+            // Nawigacja do ekranu "Details"
             Button(onClick = {
                 navController.navigate("details/${currentText}")
             }) {
                 Text(text = "Go to text")
             }
 
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // Nawigacja do ekranu "Settings"
+            Button(onClick = { navController.navigate("settings") }) {
+                Text(text = "Numer indeksu")
+            }
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            Button(onClick = { navController.navigate("settings") }) {
-                Text(text = "Numer indeksu")
+            // Nawigacja do ekranu "Kompas"
+            Button(onClick = { navController.navigate("kompas") }) {
+                Text(text = "Kompas")
+
+                Button(onClick = { navController.navigate("light_sensor") }) {
+                    Text(text = "Luksometr")
+                }
+
             }
         }
     }

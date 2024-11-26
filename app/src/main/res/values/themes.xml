@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Pls" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Główny styl aplikacji -->
+    <style name="Theme.Pls" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Główne kolory aplikacji -->
+        <item name="android:colorPrimary">@color/purple_500</item>
+        <item name="android:colorPrimaryDark">@color/purple_700</item>
+        <item name="android:colorAccent">@color/teal_200</item>
+    </style>
+
+    <!-- Styl dedykowany SplashScreen -->
+    <style name="Theme.Splash" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/rejs</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
 </resources>
