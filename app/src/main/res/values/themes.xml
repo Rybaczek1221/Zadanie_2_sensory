@@ -11,7 +11,7 @@
 
     <!-- Styl dedykowany SplashScreen -->
     <style name="Theme.Splash" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/rejs</item>
+        <item name="android:windowBackground">@drawable/kotwica_foreground</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 

@@ -62,7 +62,7 @@ fun SplashScreen(onTimeout: () -> Unit) {
 
             // Tytuł aplikacji
             Text(
-                text = "Aplikacja projektowa!",
+                text = "Aplikacja projektowa ",
                 fontSize = 24.sp,
                 color = MaterialTheme.colorScheme.primary, // Upewnij się, że kolory są zdefiniowane
                 textAlign = TextAlign.Center

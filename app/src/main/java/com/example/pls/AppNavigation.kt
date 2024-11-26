@@ -43,5 +43,11 @@ fun AppNavigation(context: Context) {
         composable("light_sensor") {
             LightSensorScreen(context) // Wywołanie funkcji LightSensorScreen
         }
+
+        // Ekran Proximity
+        composable("proximity") {
+            ProximityScreen(navController.context)
+        }
+
     }
 }

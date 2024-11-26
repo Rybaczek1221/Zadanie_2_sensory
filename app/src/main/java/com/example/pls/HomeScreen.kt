@@ -17,66 +17,70 @@ fun HomeScreen(navController: NavController) {
     var currentImage by remember { mutableIntStateOf(R.drawable.jones) }
     var currentText by remember { mutableStateOf("Jones") }
 
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+        // Wyświetlenie obrazka
+        Image(
+            painter = painterResource(id = currentImage),
+            contentDescription = "Displayed Image",
+            modifier = Modifier.size(150.dp)
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Wyświetlenie tekstu
+        Text(text = currentText)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Przycisk zmieniający obrazek i tekst
+        Button(onClick = {
+            if (currentImage == R.drawable.jones) {
+                currentImage = R.drawable.yoda
+                currentText = "Yoda"
+            } else {
+                currentImage = R.drawable.jones
+                currentText = "Jones"
+            }
+        }) {
+            Text(text = "Zmiana tekstu i obrazka")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Nawigacja do ekranu "Details"
+        Button(onClick = {
+            navController.navigate("details/${currentText}")
+        }) {
+            Text(text = "Go to text")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Nawigacja do ekranu "Settings"
+        Button(onClick = { navController.navigate("settings") }) {
+            Text(text = "Numer indeksu")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Grupa przycisków do czujników
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            // Wyświetlenie obrazka
-            Image(
-                painter = painterResource(id = currentImage),
-                contentDescription = "Displayed Image",
-                modifier = Modifier.size(150.dp)
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Wyświetlenie tekstu
-            Text(text = currentText)
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Przycisk zmieniający obrazek i tekst
-            Button(onClick = {
-                if (currentImage == R.drawable.jones) {
-                    currentImage = R.drawable.yoda
-                    currentText = "Yoda"
-                } else {
-                    currentImage = R.drawable.jones
-                    currentText = "Jones"
-                }
-            }) {
-                Text(text = "Zmiana tekstu i obrazka")
-            }
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            // Nawigacja do ekranu "Details"
-            Button(onClick = {
-                navController.navigate("details/${currentText}")
-            }) {
-                Text(text = "Go to text")
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Nawigacja do ekranu "Settings"
-            Button(onClick = { navController.navigate("settings") }) {
-                Text(text = "Numer indeksu")
-            }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Nawigacja do ekranu "Kompas"
             Button(onClick = { navController.navigate("kompas") }) {
                 Text(text = "Kompas")
-
-                Button(onClick = { navController.navigate("light_sensor") }) {
-                    Text(text = "Luksometr")
-                }
-
+            }
+            Button(onClick = { navController.navigate("light_sensor") }) {
+                Text(text = "Luksometr")
+            }
+            Button(onClick = { navController.navigate("proximity_sensor") }) {
+                Text(text = "Czujnik Zbliżeniowy")
             }
         }
     }

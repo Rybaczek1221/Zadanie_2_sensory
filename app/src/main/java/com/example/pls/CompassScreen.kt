@@ -71,9 +71,49 @@ fun CompassScreen(navController: NavHostController) {
 @Composable
 fun CompassUI(azimuth: Float) {
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp), // Dodatkowe wcięcie od krawędzi ekranu
         contentAlignment = Alignment.Center
     ) {
+        // Róża wiatrów - kierunki świata
+        Box(modifier = Modifier.fillMaxSize()) {
+            // Północ (N)
+            Text(
+                text = "N",
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .padding(top = 16.dp),
+                style = MaterialTheme.typography.bodyLarge
+            )
+
+            // Południe (S)
+            Text(
+                text = "S",
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(bottom = 16.dp),
+                style = MaterialTheme.typography.bodyLarge
+            )
+
+            // Wschód (E)
+            Text(
+                text = "E",
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(end = 16.dp),
+                style = MaterialTheme.typography.bodyLarge
+            )
+
+            // Zachód (W)
+            Text(
+                text = "W",
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .padding(start = 16.dp),
+                style = MaterialTheme.typography.bodyLarge
+            )
+        }
         // Obracająca się igła kompasu
         Image(
             painter = painterResource(id = R.drawable.compass_needle),
